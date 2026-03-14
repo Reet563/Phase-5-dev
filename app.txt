@@ -1,3 +1,5 @@
+Hello DevOps World
 Adding new feature
 Second update for Git practice
 Update from first developer
+Update from second developer
