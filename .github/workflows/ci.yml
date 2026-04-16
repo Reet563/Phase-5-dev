@@ -1,20 +1,28 @@
-name: Build and Test Pipeline
+name: Python CI Pipeline
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Simulate build
-        run: echo "Building application..."
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-      - name: Simulate test
-        run: echo "Running tests..."
+      - name: Install pytest
+        run: pip install pytest
 
-      - name: Finish pipeline
-        run: echo "Build and test completed successfully."
+      - name: Run application
+        run: python app.py
+
+      - name: Run tests
+        run: pytest
