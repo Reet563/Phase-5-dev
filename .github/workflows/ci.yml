@@ -1,4 +1,4 @@
-name: First CI Pipeline
+name: Build and Test Pipeline
 on:
   push:
     branches:
@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Run a simple command
-        run: echo "Hello DevOps from GitHub Actions!"
+      - name: Run script
+        run: |
+          echo "Starting build process"
+          echo "Running tests"
+          echo "Build completed"
